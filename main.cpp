@@ -1,30 +1,36 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
+void calculateBMI(float height, float weight, float& BMI, string&  category);
+
 int main()
 {
-    float weight, height, BMI, w1, h1, h2;
+    float weight, height, BMI;
+    string category;
     cout << "What is your height? (in inches): " << endl;
     cin >> height;
-    cout << "What is your wight? (in pounds): " << endl;
+    cout << "What is your weight? (in pounds): " << endl;
     cin >> weight;
-    w1 = weight * 0.45;
-    h1 = height * 0.025;
-    h2 = h1 * h1;
-    BMI = w1/h2;
+    calculateBMI(height, weight, BMI, category);
+
     cout << "Your BMI is: " << BMI << endl;
+    cout << "Category: " << category << endl;
+    return 0; 
+}
+void calculateBMI(float height, float weight, float& BMI, string&  category) {
+    BMI = (weight * 0.45) / ((height * 0.025) * (height * 0.025));
     if (BMI < 18.5) {
-        cout << "Youre UnderWeight" << endl;
+        category = "Underweight";
     }
     else if (BMI > 18.5 && BMI < 24.9) {
-        cout << "Youre Normal weight" << endl;
+        category = "Normal weight";
     }
     else if (BMI > 25 && BMI < 29.9) {
-        cout << "Youre Overweight" << endl;
+        category = "Overweight";
     }
     else if (BMI >= 30) {
-        cout << "Youre Obese" << endl;
+        category = "Obese";
     }
-    return 0; 
 }
