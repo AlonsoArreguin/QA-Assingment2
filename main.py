@@ -1,12 +1,12 @@
 def calculate_bmi(height, weight):
-    BMI = (weight * 0.45) / ((height * 0.025) ** 2)
+    BMI = round((weight * 0.45) / ((height * 0.025) ** 2), 1)
     if BMI < 18.5:
         category = "Underweight"
-    elif BMI < 24.9:
+    elif 18.4 <= BMI <= 24.9:
         category = "Normal weight"
-    elif BMI < 29.9:
+    elif 25 <= BMI <= 29.9:
         category = "Overweight"
-    else:
+    elif BMI >= 30:
         category = "Obese"
     return BMI, category
 
